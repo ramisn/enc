@@ -1,10 +1,9 @@
 class Event < ActiveRecord::Base
 
-    def self.search(search)
-    #def self.search(search)   
-      where(['category = ?', search])
+    belongs_to :category
 
-  #find(:all, :conditions => ['category LIKE ?', "%#{search}%"])
-  end
+    def self.search(search)
+        where(['category = ?', search])
+	end
 
 end

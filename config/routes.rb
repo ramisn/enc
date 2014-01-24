@@ -1,5 +1,7 @@
 Encorenation::Application.routes.draw do
   
+  resources :categories
+
   root to: "home#index"
   
   resources :events do 
@@ -17,7 +19,9 @@ Encorenation::Application.routes.draw do
 
   resources :events
 
-  devise_for :users
+  #devise_for :users
+
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :users
 
   # The priority is based upon order of creation: first created -> highest priority.

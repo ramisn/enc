@@ -14,6 +14,8 @@ gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-twitter'
 
+gem 'fullcalendar-rails'
+gem 'dalli'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 

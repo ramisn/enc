@@ -61,6 +61,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
+    dalli (2.7.0)
     devise (3.2.2)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
@@ -73,6 +74,7 @@ GEM
       multipart-post (>= 1.2, < 3)
     formtastic (2.3.0.rc2)
       actionpack (>= 3.0)
+    fullcalendar-rails (1.6.4.0)
     gravatar_image_tag (1.2.0)
     has_scope (0.6.0.rc)
       actionpack (>= 3.2, < 5)
@@ -202,7 +204,9 @@ DEPENDENCIES
   activeadmin!
   bootstrap-sass
   coffee-rails (~> 4.0.0)
+  dalli
   devise
+  fullcalendar-rails
   gravatar_image_tag
   icalendar
   jbuilder (~> 1.2)

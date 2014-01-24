@@ -12,15 +12,6 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
 
-    respond_to do |wants|
-    wants.html
-    wants.ics do
-      calendar = Icalendar::Calendar.new
-      calendar.add_event(@event.to_ics)
-      calendar.publish
-      render :text => calendar.to_ical
-    end
-  end
   end
 
   # GET /events/new
@@ -73,13 +64,14 @@ class EventsController < ApplicationController
   end
 
   def search
-    if params[:event][:search].blank?
+    if params[:search].blank?
       @events = Event.all
     else
       #@events = Event.search(params[:event][:search])
       #@events = Event.where(params[:event][:search])
-      @events = Event.where(["category=?", params[:event][:search]])
+      @events = Event.where(["category_id=?", params[:search]])
     end
+    render :layout => false
   end
 
   private
@@ -90,6 +82,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:name, :date, :venue, :category, :search)
+      params.require(:event).permit(:name, :date, :venue, :category_id)
     end
 end

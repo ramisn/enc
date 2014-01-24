@@ -11,15 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140124124110) do
+ActiveRecord::Schema.define(version: 20140124205410) do
 
-  create_table "candidates", force: true do |t|
+  create_table "categories", force: true do |t|
     t.string   "name"
-    t.string   "sex"
-    t.date     "dob"
-    t.string   "addrs"
-    t.string   "email"
-    t.integer  "mobile"
+    t.boolean  "status"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -28,12 +24,19 @@ ActiveRecord::Schema.define(version: 20140124124110) do
     t.string   "name"
     t.date     "date"
     t.string   "venue"
-    t.string   "category"
+    t.integer  "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "users", primary_key: "idusers", force: true do |t|
+  create_table "users", force: true do |t|
+    t.string   "name"
+    t.string   "sex"
+    t.date     "dob"
+    t.string   "address"
+    t.integer  "mobile"
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -44,6 +47,8 @@ ActiveRecord::Schema.define(version: 20140124124110) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "provider"
+    t.string   "uid"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
