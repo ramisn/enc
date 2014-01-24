@@ -1,0 +1,16 @@
+<%= t('Home') %>
+
+<% if user_signed_in? %>
+  <div class="row">
+    <div class="span4">
+      <%= render "profile" %>
+    </div>
+
+    <div class="span8">
+      <div class='content-block'>
+        Displayed here are Events and Invoice reports about the projects done.
+
+      </div>
+    </div>
+  </div>
+<% end %>

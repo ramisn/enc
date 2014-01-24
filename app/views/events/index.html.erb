@@ -1,0 +1,42 @@
+<h1>Events</h1>
+
+<table id="table_style", align="left">
+    <tr>
+        <td><%= form_tag search_events_path, :method => 'get' do %></td>
+        <td><%= select :event, :search, Event.select("distinct category").collect(&:category), :prompt => "Select Category" %></td>
+        <td><%= submit_tag "Filter", class: "btn btn-success", :category => nil %></td>
+        <% end %>
+    </tr>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Date</th>
+      <th>Venue</th>
+      <th>Category</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @events.each do |event| %>
+      <tr>
+        <td><%= event.name %></td>
+        <td><%= event.date %></td>
+        <td><%= event.venue %></td>
+        <td><%= event.category %></td>
+        <td><%= link_to 'Show', event %></td>
+        <td><%= link_to 'Edit', edit_event_path(event) %></td>
+        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Event', new_event_path %>

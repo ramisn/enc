@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Encorenation </title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <div class="container">
+    <div class="row">
+      <div class="span12">
+        <div class='pull-left'>
+          <h1> Encorenation <small> Event Management made Easy! </small> </h1>
+        </div>
+
+        <div class='pull-right top20'>
+          <%= link_to "Home", home_index_path, class:"btn btn-primary", title:"Home" %> &nbsp;
+          <%= link_to "Events", events_path, class:"btn btn-primary", title:"Events" %> &nbsp;
+          <% if user_signed_in? %>
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, class:"btn btn-large btn-danger", confirm: "Are you sure?" %>
+          <% else %>
+          <%= link_to "Sign Up", new_user_registration_path, class:"btn btn-primary", title:"Home" %> &nbsp;
+          <% end %>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <hr />
+      </div>
+    </div>
+
+    <% if notice %>
+      <div class="alert alert-success">
+        <%= notice %>
+      </div>
+    <% end %>
+
+    <% if alert %>
+      <div class="alert alert-error">
+        <%= alert %>
+      </div>
+    <% end %>
+
+    <div class="row">
+      <div class="span12">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
