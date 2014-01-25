@@ -9,7 +9,7 @@
   <link rel='stylesheet' type='text/css' href='fullcalendar.css' />
 <script type='text/javascript' src='/jquery.js'></script>
 <script type='text/javascript' src='/bower_components/fullcalendar/fullcalendar.js'></script>
-<!--<script type='text/javascript' src='fullcalendar/gcal.js'></script> -->
+<script type='text/javascript' src='fullcalendar/gcal.js'></script>
 
 </head>
 <body>
@@ -105,6 +105,7 @@
         <div class='pull-right top20'>
           <%= link_to "Home", home_index_path, class:"btn btn-primary", title:"Home" %> &nbsp;
           <%= link_to "Events", events_path, class:"btn btn-primary", title:"Events" %> &nbsp;
+          <%= link_to "Candidates", candidates_path, class:"btn btn-primary", title:"Candidates" %> &nbsp;
           <% if user_signed_in? %>
           <%= link_to "Logout", destroy_user_session_path, method: :delete, class:"btn btn-large btn-danger", confirm: "Are you sure?" %>
           <% else %>
