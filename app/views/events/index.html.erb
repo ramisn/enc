@@ -44,8 +44,9 @@
     <tr>
         <%= form_for :event, :url => "#", :method => 'get' do %>
            <td><%= collection_select :event, :search, Category.order(:name), :id, :name, {:prompt => "--Select--"} %></td>
-           <td><%= submit_tag "Filter", class: "btn btn-success"  %></td>
-        <% end %>
+          <td><%= submit_tag "Filter", class: "btn btn-success"  %></td>
+          <% end %>
+          <td><%= link_to "Apply", new_candidate_path, class: "btn btn-success"  %></td>
     </tr>
 </table>
 <br/>
@@ -72,6 +73,7 @@
         <td><%= link_to 'Show', event %></td>
         <td><%= link_to 'Edit', edit_event_path(event) %></td>
         <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Apply', new_candidate_path %></td>
       </tr>
     <% end %>
   </tbody>

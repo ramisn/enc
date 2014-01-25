@@ -1,3 +1,71 @@
 // Place all the styles related to the candidates controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.candidate_profile {
+  .cv_management {
+    margin-bottom: 20px;
+
+    .icon-download {
+      color: green;
+      text-decoration: none;
+    }
+
+    .icon-minus {
+      color: lightgrey;
+    }
+
+    .cv_title {
+      font-size: 30px;
+    }
+
+    .cv_icon {
+      font-size: 42px;
+      margin-left: 10px;
+    }
+  }
+
+  .dl-horizontal {
+    $dl_padding: 3px;
+    margin-bottom: 30px;
+    font-size: 18px;
+
+    dt {
+      padding-bottom: $dl_padding;
+      width: 160px;
+    }
+
+    dd {
+      padding-bottom: $dl_padding;
+      margin-left: 170px;
+    }
+  }
+}
+
+.candidate_list {
+
+  .icon-download {
+    color: green;
+    text-decoration: none;
+    font-size: 25px;
+  }
+
+  .icon-minus {
+    color: lightgrey;
+    font-size: 25px;
+  }
+}
+
+.existing_cv {
+  margin-left: 160px;
+  font-style: italic;
+  margin-top: -15px;
+}
+
+.candidate_filter {
+  margin-top: 5px;
+
+  input[name="commit"] {
+    margin-bottom: 8px;
+  }
+}

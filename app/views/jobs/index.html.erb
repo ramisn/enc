@@ -1,0 +1,101 @@
+<center>
+<h1> Encorenation </h1>
+</center>
+<br>
+<p>
+  <%=link_to 'Create Job', new_job_url, :id => 'new_job' %>
+</p>
+
+<script>
+  
+  
+  $(document).ready(function(){
+      // page is now ready, initialize the calendar...
+      $('#new_job').click(function(event) {
+        event.preventDefault();
+        var url = $(this).attr('href');
+        $.ajax({
+          url: url,
+          beforeSend: function() {
+            $('#loading').show();
+          },
+          complete: function() {
+            $('#loading').hide();
+          },
+          success: function(data) {
+            $('#create_job').replaceWith(data['form']);
+            $('#create_job_dialog').dialog({
+              title: 'New Job',
+              modal: true,
+              width: 500,
+              close: function(event, ui) { $('#create_job_dialog').dialog('destroy') }
+            });
+          }
+        });
+      });
+
+      $('#calendar').fullCalendar({
+          editable: true,
+          header: {
+              left: 'prev,next today',
+              center: 'title',
+              right: 'month,agendaWeek,agendaDay'
+          },
+          defaultView: 'agendaWeek',
+          height: 500,
+          slotMinutes: 15,
+          loading: function(bool){
+              if (bool) 
+                  $('#loading').show();
+              else 
+                  $('#loading').hide();
+          },
+          events: "/jobs/get_jobs",
+          timeFormat: 'h:mm t{ - h:mm t} ',
+          dragOpacity: "0.5",
+          eventDrop: function(job, dayDelta, minuteDelta, allDay, revertFunc){
+//              if (confirm("Are you sure about this change?")) {
+                  moveEvent(event, dayDelta, minuteDelta, allDay);
+//              }
+//              else {
+//                  revertFunc();
+//              }
+          },
+          
+          eventResize: function(job, dayDelta, minuteDelta, revertFunc){
+//              if (confirm("Are you sure about this change?")) {
+                  resizeEvent(event, dayDelta, minuteDelta);
+//              }
+//              else {
+//                  revertFunc();
+//              }
+          },
+          
+          eventClick: function(event, jsEvent, view){
+              showEventDetails(event);
+          },
+      
+      
+      
+      
+      });
+  });
+</script>
+<div>
+  <div id='calendar'>
+  </div>
+</div>
+<div id = "desc_dialog" class="dialog" style ="display:none;">
+  <div id = "job_desc">
+  </div>
+  <br/>
+  <br/>
+  <div id = "job_actions">
+    <span id = "edit_job"></span>
+    <span id = "delete_job"></span>
+  </div>
+</div>
+<div id = "create_job_dialog" class="dialog" style ="display:none;">
+  <div id = "create_job">
+  </div>
+</div>

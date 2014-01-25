@@ -1,29 +1,31 @@
 class CandidatesController < ApplicationController
   before_action :set_candidate, only: [:show, :edit, :update, :destroy]
 
-  # GET /candidates
-  # GET /candidates.json
+  # GET /events
+  # GET /events.json
   def index
     @candidates = Candidate.all
   end
 
-  # GET /candidates/1
-  # GET /candidates/1.json
+  # GET /events/1
+  # GET /events/1.json
   def show
     @candidate = Candidate.find(params[:id])
+
   end
 
-  # GET /candidates/new
+  # GET /events/new
   def new
     @candidate = Candidate.new
   end
 
-  # GET /candidates/1/edit
+  # GET /events/1/edit
   def edit
+    @candidate = Candidate.find(params[:id])
   end
 
-  # POST /candidates
-  # POST /candidates.json
+  # POST /events
+  # POST /events.json
   def create
     @candidate = Candidate.new(candidate_params)
 
@@ -38,8 +40,8 @@ class CandidatesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /candidates/1
-  # PATCH/PUT /candidates/1.json
+  # PATCH/PUT /events/1
+  # PATCH/PUT /events/1.json
   def update
     respond_to do |format|
       if @candidate.update(candidate_params)
@@ -52,8 +54,8 @@ class CandidatesController < ApplicationController
     end
   end
 
-  # DELETE /candidates/1
-  # DELETE /candidates/1.json
+  # DELETE /events/1
+  # DELETE /events/1.json
   def destroy
     @candidate.destroy
     respond_to do |format|
@@ -61,6 +63,22 @@ class CandidatesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def download_cv
+    cv = Candidate.find(params[:id]).cv
+    send_file "#{Rails.root}/public/#{cv}"
+  end
+
+  # def search
+  #   if params[:search].blank?
+  #     @candidates = Candidate.all
+  #   else
+  #     #@events = Event.search(params[:event][:search])
+  #     #@events = Event.where(params[:event][:search])
+  #     @candidates = Candidate.where(["category_id=?", params[:search]])
+  #   end
+  #   render :layout => false
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -70,6 +88,7 @@ class CandidatesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def candidate_params
-      params.require(:candidate).permit(:name, :sex, :dob, :addrs, :email, :mobile)
+      params.require(:candidate).permit(:first_name, :last_name, :email, :gender, :dob, :education, :website, :address, :address1, :city, :state, :zip, :home_phone, :mobile, :language, :cv)
     end
 end
+

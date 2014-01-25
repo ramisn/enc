@@ -1,1 +1,1 @@
-json.extract! @candidate, :id, :name, :sex, :dob, :addrs, :email, :mobile, :created_at, :updated_at
+json.extract! @candidate, :id, :first_name, :last_name, :email, :gender, :dob, :education, :website, :address, :address1, :city, :state, :zip, :home_phone, :mobile, :language, :cv, :created_at, :updated_at

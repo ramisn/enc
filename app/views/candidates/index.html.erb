@@ -3,12 +3,22 @@
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Sex</th>
-      <th>Dob</th>
-      <th>Addrs</th>
+      <th>First name</th>
+      <th>Last name</th>
       <th>Email</th>
+      <th>Gender</th>
+      <th>Dob</th>
+      <th>Education</th>
+      <th>Website</th>
+      <th>Address</th>
+      <th>Address1</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Zip</th>
+      <th>Home phone</th>
       <th>Mobile</th>
+      <th>Language</th>
+      <th>Cv</th>
       <th></th>
       <th></th>
       <th></th>
@@ -18,12 +28,22 @@
   <tbody>
     <% @candidates.each do |candidate| %>
       <tr>
-        <td><%= candidate.name %></td>
-        <td><%= candidate.sex %></td>
-        <td><%= candidate.dob %></td>
-        <td><%= candidate.addrs %></td>
+        <td><%= candidate.first_name %></td>
+        <td><%= candidate.last_name %></td>
         <td><%= candidate.email %></td>
+        <td><%= candidate.gender %></td>
+        <td><%= candidate.dob %></td>
+        <td><%= candidate.education %></td>
+        <td><%= candidate.website %></td>
+        <td><%= candidate.address %></td>
+        <td><%= candidate.address1 %></td>
+        <td><%= candidate.city %></td>
+        <td><%= candidate.state %></td>
+        <td><%= candidate.zip %></td>
+        <td><%= candidate.home_phone %></td>
         <td><%= candidate.mobile %></td>
+        <td><%= candidate.language %></td>
+        <td><%= candidate.cv %></td>
         <td><%= link_to 'Show', candidate %></td>
         <td><%= link_to 'Edit', edit_candidate_path(candidate) %></td>
         <td><%= link_to 'Destroy', candidate, method: :delete, data: { confirm: 'Are you sure?' } %></td>

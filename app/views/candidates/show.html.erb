@@ -1,23 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @candidate.name %>
+  <strong>First name:</strong>
+  <%= @candidate.first_name %>
 </p>
 
 <p>
-  <strong>Sex:</strong>
-  <%= @candidate.sex %>
-</p>
-
-<p>
-  <strong>Dob:</strong>
-  <%= @candidate.dob %>
-</p>
-
-<p>
-  <strong>Addrs:</strong>
-  <%= @candidate.addrs %>
+  <strong>Last name:</strong>
+  <%= @candidate.last_name %>
 </p>
 
 <p>
@@ -26,8 +16,68 @@
 </p>
 
 <p>
+  <strong>Gender:</strong>
+  <%= @candidate.gender %>
+</p>
+
+<p>
+  <strong>Dob:</strong>
+  <%= @candidate.dob %>
+</p>
+
+<p>
+  <strong>Education:</strong>
+  <%= @candidate.education %>
+</p>
+
+<p>
+  <strong>Website:</strong>
+  <%= @candidate.website %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @candidate.address %>
+</p>
+
+<p>
+  <strong>Address1:</strong>
+  <%= @candidate.address1 %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @candidate.city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @candidate.state %>
+</p>
+
+<p>
+  <strong>Zip:</strong>
+  <%= @candidate.zip %>
+</p>
+
+<p>
+  <strong>Home phone:</strong>
+  <%= @candidate.home_phone %>
+</p>
+
+<p>
   <strong>Mobile:</strong>
   <%= @candidate.mobile %>
+</p>
+
+<p>
+  <strong>Language:</strong>
+  <%= @candidate.language %>
+</p>
+
+<p>
+  <strong>Cv:</strong>
+  <%= @candidate.cv %>
 </p>
 
 <%= link_to 'Edit', edit_candidate_path(@candidate) %> |

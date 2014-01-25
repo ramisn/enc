@@ -11,11 +11,47 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140124205410) do
+ActiveRecord::Schema.define(version: 20140125104754) do
+
+  create_table "active_admin_comments", force: true do |t|
+    t.string   "namespace"
+    t.text     "body"
+    t.string   "resource_id",   null: false
+    t.string   "resource_type", null: false
+    t.integer  "author_id"
+    t.string   "author_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
+  add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
+  add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
+
+  create_table "candidates", force: true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.string   "gender"
+    t.date     "dob"
+    t.string   "education"
+    t.string   "website"
+    t.string   "address"
+    t.string   "address1"
+    t.string   "city"
+    t.string   "state"
+    t.integer  "zip"
+    t.string   "home_phone"
+    t.string   "mobile"
+    t.string   "language"
+    t.string   "cv"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "categories", force: true do |t|
     t.string   "name"
-    t.boolean  "status"
+    t.boolean  "status",     default: true
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -28,6 +64,29 @@ ActiveRecord::Schema.define(version: 20140124205410) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "job_series", force: true do |t|
+    t.integer  "frequency"
+    t.string   "period"
+    t.datetime "starttime"
+    t.datetime "endtime"
+    t.boolean  "all_day"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "jobs", force: true do |t|
+    t.string   "title"
+    t.string   "description"
+    t.datetime "starttime"
+    t.datetime "endtime"
+    t.boolean  "all_day"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "job_series_id"
+  end
+
+  add_index "jobs", ["job_series_id"], name: "index_jobs_on_job_series_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "name"

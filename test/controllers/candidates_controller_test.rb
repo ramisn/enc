@@ -18,7 +18,7 @@ class CandidatesControllerTest < ActionController::TestCase
 
   test "should create candidate" do
     assert_difference('Candidate.count') do
-      post :create, candidate: { addrs: @candidate.addrs, dob: @candidate.dob, email: @candidate.email, mobile: @candidate.mobile, name: @candidate.name, sex: @candidate.sex }
+      post :create, candidate: { address1: @candidate.address1, address: @candidate.address, city: @candidate.city, cv: @candidate.cv, dob: @candidate.dob, education: @candidate.education, email: @candidate.email, first_name: @candidate.first_name, gender: @candidate.gender, home_phone: @candidate.home_phone, language: @candidate.language, last_name: @candidate.last_name, mobile: @candidate.mobile, state: @candidate.state, website: @candidate.website, zip: @candidate.zip }
     end
 
     assert_redirected_to candidate_path(assigns(:candidate))
@@ -35,7 +35,7 @@ class CandidatesControllerTest < ActionController::TestCase
   end
 
   test "should update candidate" do
-    patch :update, id: @candidate, candidate: { addrs: @candidate.addrs, dob: @candidate.dob, email: @candidate.email, mobile: @candidate.mobile, name: @candidate.name, sex: @candidate.sex }
+    patch :update, id: @candidate, candidate: { address1: @candidate.address1, address: @candidate.address, city: @candidate.city, cv: @candidate.cv, dob: @candidate.dob, education: @candidate.education, email: @candidate.email, first_name: @candidate.first_name, gender: @candidate.gender, home_phone: @candidate.home_phone, language: @candidate.language, last_name: @candidate.last_name, mobile: @candidate.mobile, state: @candidate.state, website: @candidate.website, zip: @candidate.zip }
     assert_redirected_to candidate_path(assigns(:candidate))
   end
 

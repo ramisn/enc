@@ -4,10 +4,11 @@
   <thead>
     <tr>
       <th>Email</th>
-      <th>Password</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>Name</th>
+      <th>Sex</th>
+      <th>DOB</th>
+      <th>Address</th>
+      <th>Mobile No</th>
     </tr>
   </thead>
 
@@ -15,7 +16,11 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= user.email %></td>
-        <td><%= user.password %></td>
+        <td><%= user.name %></td>
+        <td><%= user.sex %></td>
+        <td><%= user.dob %></td>
+        <td><%= user.address %></td>
+        <td><%= user.mobile %></td>
         <td><%= link_to 'Show', user %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
         <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>

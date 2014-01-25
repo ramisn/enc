@@ -16,8 +16,15 @@ gem 'omniauth-twitter'
 
 gem 'fullcalendar-rails'
 gem 'dalli'
+
+# gem 'twitter-bootstrap-rails', :git => 'http://github.com/seyhunak/twitter-bootstrap-rails.git'
+
+gem 'carrierwave'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
+# gem "therubyracer"
+# gem "less-rails"
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'

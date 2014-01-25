@@ -1,5 +1,6 @@
 Encorenation::Application.routes.draw do
   
+  ActiveAdmin.routes(self)
   resources :categories
 
   root to: "home#index"
@@ -23,6 +24,15 @@ Encorenation::Application.routes.draw do
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :users
+
+  #root :to => 'jobs#index'
+  resources :jobs do 
+    collection do 
+      get :get_jobs
+      post :move
+      post :resize
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

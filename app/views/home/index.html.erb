@@ -8,7 +8,28 @@
 
     <div class="span8">
       <div class='content-block'>
-        Displayed here are Events and Invoice reports about the projects done.
+        Displayed here are Events,
+
+        <style>
+        .resizable { width: 700px; height: 400px; padding: 1.5em; float:right;}
+        .resizable h3 { text-align: center; margin: 0; }
+        </style>
+        <script>
+          $(document).ready(function() {
+
+            // page is now ready, initialize the calendar...
+            $('#calendar').fullCalendar({
+                events: 'https://www.google.com/calendar/feeds/rameshkror%40gmail.com/public/basic'
+            })
+
+        });
+
+        $(function() {
+            $( ".resizable" ).resizable();
+          });
+        </script>
+
+        <div id='calendar', class='resizable'></div>
 
       </div>
     </div>
