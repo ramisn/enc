@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140125104754) do
+ActiveRecord::Schema.define(version: 20140127055014) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -92,8 +92,6 @@ ActiveRecord::Schema.define(version: 20140125104754) do
     t.string   "name"
     t.string   "sex"
     t.date     "dob"
-    t.string   "address"
-    t.integer  "mobile"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "email",                  default: "", null: false
@@ -108,6 +106,22 @@ ActiveRecord::Schema.define(version: 20140125104754) do
     t.string   "last_sign_in_ip"
     t.string   "provider"
     t.string   "uid"
+    t.string   "last_name"
+    t.string   "middle_initial"
+    t.string   "social_security"
+    t.string   "verify_social_security"
+    t.string   "website"
+    t.string   "address"
+    t.string   "address1"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.string   "home_phone"
+    t.string   "work_phone"
+    t.string   "ext"
+    t.string   "mobile"
+    t.string   "fax"
+    t.boolean  "available"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

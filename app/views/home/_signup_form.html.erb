@@ -1,0 +1,66 @@
+<!-- <div id="login-box"> -->
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+<H1>Sign Up</H1>
+  <div>First Name:
+  <%= f.text_field :name %>
+  </div> </br>
+  <div>Last Name:
+    <%= f.text_field :last_name %>
+  </div></br>
+  <div>Middle Initial:
+    <%= f.text_field :middle_initial %>
+  </div></br>
+  <div>Email:
+    <%= f.email_field :email %>
+  </div></br>
+  <div>Password:
+    <%= f.password_field :password %>
+  </div></br>
+  <div>Password Confirmation:
+    <%= f.password_field :password_confirmation %>
+  </div></br>
+  <div>Social Security:
+    <%= f.text_field :social_security %>
+  </div></br>
+  <div> Verify Social Security:
+    <%= f.text_field :verify_social_security %>
+  </div></br>
+  <div> Website:
+    <%= f.text_field :website %>
+  </div></br>
+  <div> Address:
+    <%= f.text_field :address %>
+  </div></br>
+  <div> Address1:
+    <%= f.text_field :address1 %>
+  </div></br>
+  <div> City:
+    <%= f.text_field :city %>
+  </div></br>
+  <div> State:
+    <%= f.text_field :state %>
+  </div></br>
+  <div> ZIP/Province:
+    <%= f.text_field :zip %>
+  </div></br>
+  <div> Home Phone:
+    <%= f.text_field :home_phone %>
+  </div></br>
+  <div> Work Phone:
+    <%= f.text_field :work_phone %>
+  </div></br>
+  <div> Ext:
+    <%= f.text_field :ext %>
+  </div></br>
+  <div> Mobile:
+    <%= f.text_field :mobile %>
+  </div></br>
+  <div> Fax:
+    <%= f.text_field :fax %>
+  </div></br>
+  <div> Days Available:
+    <%= f.check_box :available %>
+  </div></br>
+  <%= f.submit "Sign up" %>
+<% end %>

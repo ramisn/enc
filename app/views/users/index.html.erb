@@ -3,24 +3,53 @@
 <table>
   <thead>
     <tr>
-      <th>Email</th>
-      <th>Name</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Middle Initial</th>
       <th>Sex</th>
       <th>DOB</th>
+      <th>Email</th>
+      <th>Social Security</th>
+      <th>Verify Social Security</th>
+      <th>Website</th>
       <th>Address</th>
+      <th>Address1</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Zip/Province</th>
+      <th>Home Phone</th>
+      <th>Work Phone</th>
+      <th>Ext</th>
       <th>Mobile No</th>
+      <th>Fax</th>
+      <th>Available</th>
+              
     </tr>
   </thead>
 
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= user.email %></td>
         <td><%= user.name %></td>
+        <td><%= user.last_name %></td>
+        <td><%= user.middle_initial %></td>
         <td><%= user.sex %></td>
         <td><%= user.dob %></td>
+        <td><%= user.email %></td>
+        <td><%= user.social_security %></td>
+        <td><%= user.verify_social_security %></td>
+        <td><%= user.website %></td>
         <td><%= user.address %></td>
+        <td><%= user.address1 %></td>
+        <td><%= user.city %></td>
+        <td><%= user.state %></td>
+        <td><%= user.zip %></td>
+        <td><%= user.home_phone %></td>
+        <td><%= user.work_phone %></td>
+        <td><%= user.ext %></td>
         <td><%= user.mobile %></td>
+        <td><%= user.fax %></td>
+        <td><%= user.available %></td>
         <td><%= link_to 'Show', user %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
         <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
