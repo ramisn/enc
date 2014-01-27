@@ -17,6 +17,9 @@ gem 'omniauth-twitter'
 gem 'fullcalendar-rails'
 gem 'dalli'
 
+gem 'cancan'
+gem 'role_model'
+
 # gem 'twitter-bootstrap-rails', :git => 'http://github.com/seyhunak/twitter-bootstrap-rails.git'
 
 gem 'carrierwave'

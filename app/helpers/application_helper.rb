@@ -1,5 +1,5 @@
 module ApplicationHelper
-def t(page_title=nil)
+  def t(page_title=nil)
     content_for :title do
       if page_title.nil?
         "Kanban PH"

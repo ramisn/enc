@@ -74,6 +74,7 @@
     <%= f.label :available %><br>
     <%= f.check_box :available %>
   </div>
+  <%= f.collection_select :role, User::ROLES, :to_s, :humanize %>
   <div class="field">
     <%= f.label :sex %><br>
     <%= f.text_field :sex %>
