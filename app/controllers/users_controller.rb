@@ -65,6 +65,26 @@ class UsersController < ApplicationController
     end
   end
 
+  # def search
+  #   if params[:search].blank?
+  #     @users = User.all
+  #   else
+  #     #@events = Event.search(params[:event][:search])
+  #     #@events = Event.where(params[:event][:search])
+  #     @users = User.where(["sex=?", params[:search]])
+  #   end
+  #   render :layout => false
+  # end
+
+  def search
+
+    if params[:user][:search].blank?
+      @users = User.all
+    else
+      @users = User.search(params[:user][:search])
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user

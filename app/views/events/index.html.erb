@@ -36,7 +36,7 @@
 
     </script>
 
-    
+     
 
 <h1>Events</h1>
 
@@ -44,9 +44,8 @@
     <tr>
         <%= form_for :event, :url => "#", :method => 'get' do %>
            <td><%= collection_select :event, :search, Category.order(:name), :id, :name, {:prompt => "--Select--"} %></td>
-          <td><%= submit_tag "Filter", class: "btn btn-success"  %></td>
-          <% end %>
-          <td><%= link_to "Apply", new_candidate_path, class: "btn btn-success"  %></td>
+           <td><%= submit_tag "Filter", class: "btn btn-success"  %></td>
+        <% end %>
     </tr>
 </table>
 <br/>
@@ -66,7 +65,7 @@
   <tbody>
     <% @events.each do |event| %>
       <tr>
-        <td><%= event.name %></td>
+        <td><%= link_to event.name,  event %></td>
         <td><%= event.date %></td>
         <td><%= event.venue %></td>
         <td><%= event.category.name if event.category %></td>
@@ -79,9 +78,7 @@
 </table>
 
 <br>
-
+<% if current_user.role == 'admin' %>
 <%= link_to 'New Event', new_event_path %>
-
 <div id='calendar', class='resizable'></div>
-
-
+<% end %>

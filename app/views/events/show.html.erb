@@ -19,6 +19,8 @@
   <strong>Category:</strong>
   <%= @event.category.name %>
 </p>
-
+<% if current_user.role == 'admin' %>
 <%= link_to 'Edit', edit_event_path(@event) %> |
+<% end %>
 <%= link_to 'Back', events_path %>
+<%= link_to 'Participate', '#' %>

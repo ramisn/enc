@@ -22,9 +22,13 @@
 
         <div class='pull-right top20'>
           <%= link_to "Home", home_index_path, class:"btn btn-primary", title:"Home" %> &nbsp;
+        
           <%= link_to "Events", events_path, class:"btn btn-primary", title:"Events" %> &nbsp;
-          <%= link_to "Candidates", users_path, class:"btn btn-primary", title:"Candidates" %> &nbsp;
           <% if user_signed_in? %>
+          <% if current_user.role == 'admin' %>
+          <%= link_to "Talents", users_path, class:"btn btn-primary", title:"Candidates" %> &nbsp;
+          <%= link_to "Catagories", categories_path, class:"btn btn-primary", title:"Candidates" %> &nbsp;
+          <% end %>
           <%= link_to "Logout", destroy_user_session_path, method: :delete, class:"btn btn-large btn-danger", confirm: "Are you sure?" %>
           <% else %>
           <%= link_to "Sign Up", new_user_registration_path, class:"btn btn-primary", title:"Home" %> &nbsp;

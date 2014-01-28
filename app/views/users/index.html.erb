@@ -1,6 +1,26 @@
-<h1>Listing users</h1>
+<script>
+         $('.btn-success').click(function() {
+             $.ajax({
+             url: "/users/search",
+             data: {
+                 search: $('#user_search').val()
+             },
+             type: "GET",
+             dataType : "html",
+             success: function( data ) {
+                 $('#replace').html(data);
+             },
+             error: function( xhr, status ) {
+             alert( "Sorry, there was a problem!" );
+             }
+             });
+         });
 
-<table>
+</script>
+
+<h1>Talents</h1>
+
+<table id="replace">
   <thead>
     <tr>
       <th>First Name</th>

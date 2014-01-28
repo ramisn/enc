@@ -1,5 +1,7 @@
 Encorenation::Application.routes.draw do
   
+  resources :venues
+
   ActiveAdmin.routes(self)
   resources :categories
 

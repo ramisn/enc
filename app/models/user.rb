@@ -10,6 +10,14 @@ class User < ActiveRecord::Base
 
   ROLES = %w[admin moderator]
 
+  # def self.search(search)
+  #       where(['sex = ?', search])
+  # end
+
+  def self.search(search)
+  find(:all, :conditions => ['sex LIKE ?', search])
+  end
+
 	def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
 	    user = User.where(:provider => auth.provider, :uid => auth.uid).first
 	    if user
